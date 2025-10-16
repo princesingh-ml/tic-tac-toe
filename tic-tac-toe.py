@@ -14,7 +14,7 @@ def moves(col, row, player):
         print("The block have already being used.")
         return False
 
-def reasults(player):
+def results(player):
     # row
     for row in game:
         if row == [player, player, player]:
@@ -31,13 +31,13 @@ def reasults(player):
     elif game[0][2] == game[1][1] == game[2][0] == player:
         return True
     else:
-        False
+        return False
 
 def draw():
     for row in game:
         if "_" in row:
             return False
-        return True
+    return True
 
 
 # Main code:
@@ -55,8 +55,8 @@ while game_on:
     if not moves(col_move, row_move, current_player):
         continue
     game_board()
-    #  Check for reasults
-    if reasults(current_player):
+    #  Check results
+    if results(current_player):
         print(f"{current_player} won the game!")
         game_on = False
         break
@@ -64,7 +64,7 @@ while game_on:
     if draw():
         print(f"Both players 'X' and 'O' did well, but its a draw!")
         break
-    
+
     # Switching player:
     if current_player == playerX:
         current_player = playerO
