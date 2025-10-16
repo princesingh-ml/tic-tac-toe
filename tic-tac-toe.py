@@ -63,6 +63,8 @@ while game_on:
 
     if draw():
         print(f"Both players 'X' and 'O' did well, but its a draw!")
+        break
+    
     # Switching player:
     if current_player == playerX:
         current_player = playerO
